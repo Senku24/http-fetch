@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <script>
+            async function add() {
+                const a = document.getElementById("first").value;
+                const b = document.getElementById("second").value;
+
+                const res = await fetch("http://localhost:3000/sum/" + a + "/" + b);
+                const json = await res.json()
+                document.getElementById("response").innerHTML = json.ans;
+            }
+
+            async function subtract() {
+                const a = document.getElementById("first").value;
+                const b = document.getElementById("second").value;
+
+                const res = await fetch("http://localhost:3000/sub/" + a + "/" + b);
+                const json = await res.json()
+                document.getElementById("response").innerHTML = json.ans;
+            }
+
+            async function multiply() {
+                const a = document.getElementById("first").value;
+                const b = document.getElementById("second").value;
+
+                const res = await fetch("http://localhost:3000/mul/" + a + "/" + b);
+                const json = await res.json()
+                document.getElementById("response").innerHTML = json.ans;
+            }
+
+            async function divide() {
+                const a = document.getElementById("first").value;
+                const b = document.getElementById("second").value;
+
+                const res = await fetch("http://localhost:3000/div/" + a + "/" + b);
+                const json = await res.json()
+                document.getElementById("response").innerHTML = json.ans;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>
+            Calculator
+        </h1>
+        <p>Enter two numbers to perform calculations:</p>
+
+        <input id="first" type="text" placeholder=" first num"/>
+        <input id="second" type="text" placeholder=" second num"/>
+        <p id="response"></p>
+        <button onclick="add()">+</button>
+        <button onclick="subtract()">-</button>
+        <button onclick="multiply()">*</button>
+        <button onclick="divide()">/</button>
+    </body>
+</html>
