@@ -5,11 +5,21 @@
                 const a = document.getElementById("first").value;
                 const b = document.getElementById("second").value;
 
-                const res = await fetch("http://localhost:3000/sum/" + a + "/" + b);
+                // document.getElementById("response").innerHTML = parseInt(a) + parseInt(b);
+                // axios
+                const res = await fetch("http://localhost:3000/sum/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        a: a,
+                        b: b
+                    })
+                });
                 const json = await res.json()
                 document.getElementById("response").innerHTML = json.ans;
             }
-
             async function subtract() {
                 const a = document.getElementById("first").value;
                 const b = document.getElementById("second").value;
@@ -36,7 +46,7 @@
                 const json = await res.json()
                 document.getElementById("response").innerHTML = json.ans;
             }
-        </script>
+        </script> 
     </head>
     <body>
         <h1>
